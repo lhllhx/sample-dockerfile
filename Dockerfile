@@ -15,9 +15,9 @@ RUN go build -mod=vendor -o bin/hello
 
 # -- Stage 2 -- #
 # Create the final environment with the compiled binary.
-FROM node:18
+FROM node:18-alpine
 # Install any required dependencies.
-RUN apt update && apt install ca-certificates -y
+RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 # Copy the binary from the builder stage and set it as the default command.
 COPY --from=builder /app/bin/hello /usr/local/bin/
