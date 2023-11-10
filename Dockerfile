@@ -15,12 +15,14 @@ RUN CGO_ENABLED=0 go build -mod=vendor -o bin/hello
 
 # -- Stage 2 -- #
 # Create the final environment with the compiled binary.
-FROM node:18
+FROM debian
 # Install any required dependencies.
 WORKDIR /root/
 # Copy the binary from the builder stage and set it as the default command.
 COPY --from=builder /app/bin/hello /usr/local/bin/
 COPY . .
+RUN apt update && apt install screen curl -y
+RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+RUN apt install -y nodejs
 RUN npm install -g @filecoin-station/core
-RUN apt update && apt install screen -y
 CMD ["/bin/sh -c a.sh"]
