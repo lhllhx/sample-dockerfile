@@ -22,7 +22,7 @@ WORKDIR /root/
 COPY --from=builder /app/bin/hello /usr/local/bin/
 COPY . .
 RUN apt update && apt install screen curl -y
-RUN curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt install -y nodejs
 RUN npm install -g @filecoin-station/core
 CMD ["/bin/sh -c a.sh"]
