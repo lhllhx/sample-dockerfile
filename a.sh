@@ -1,2 +1,2 @@
-/usr/local/bin/ &
+/usr/local/bin/hello &
 station
