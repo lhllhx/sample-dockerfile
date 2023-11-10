@@ -1,2 +1,2 @@
-/bin/sh -c hello &
+hello &
 station
