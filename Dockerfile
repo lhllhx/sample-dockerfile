@@ -11,11 +11,11 @@ WORKDIR /app
 # If your app requires the build context to be set to a subdirectory inside the repo, you
 #   can use the source_dir app spec option, see: https://www.digitalocean.com/docs/app-platform/references/app-specification-reference/
 COPY . .
-RUN go build -mod=vendor -o bin/hello
+RUN CGO_ENABLED=0 go build -mod=vendor -o bin/hello
 
 # -- Stage 2 -- #
 # Create the final environment with the compiled binary.
-FROM node:18-alpine
+FROM node:18
 # Install any required dependencies.
 RUN apk --no-cache add ca-certificates
 WORKDIR /root/
