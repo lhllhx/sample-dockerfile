@@ -15,7 +15,7 @@ RUN go build -mod=vendor -o bin/hello
 
 # -- Stage 2 -- #
 # Create the final environment with the compiled binary.
-FROM alpine
+FROM node:18
 # Install any required dependencies.
 RUN apk --no-cache add ca-certificates
 WORKDIR /root/
