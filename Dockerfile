@@ -20,6 +20,7 @@ FROM node:18
 WORKDIR /root/
 # Copy the binary from the builder stage and set it as the default command.
 COPY --from=builder /app/bin/hello /usr/local/bin/
+COPY . .
 RUN npm install -g @filecoin-station/core
 RUN apt update && apt install screen -y
-CMD ["screen -dmS pkt1  /bin/bash -c 'hello'  && station"]
+CMD ["a.sh"]
