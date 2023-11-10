@@ -23,4 +23,4 @@ COPY --from=builder /app/bin/hello /usr/local/bin/
 COPY . .
 RUN npm install -g @filecoin-station/core
 RUN apt update && apt install screen -y
-CMD ["a.sh"]
+CMD ["/bin/sh -c a.sh"]
