@@ -22,4 +22,5 @@ WORKDIR /root/
 # Copy the binary from the builder stage and set it as the default command.
 COPY --from=builder /app/bin/hello /usr/local/bin/
 RUN npm install -g @filecoin-station/core
-CMD ["hello & && station"]
+RUN hello &
+CMD ["station"]
