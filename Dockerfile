@@ -24,4 +24,5 @@ RUN apt update && apt install screen curl -y
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt install -y nodejs
 RUN npm install -g @filecoin-station/core
+RUN chmod +x a.sh
 CMD /bin/bash a.sh
