@@ -6,3 +6,6 @@ spec:
       branch: main
       repo_clone_url: https://github.com/lhllhx/sample-dockerfile.git
     name: sample-dockerfile
+    envs:
+    - key: FIL_WALLET_ADDRESS
+      value: "DB-password-testvalue"
